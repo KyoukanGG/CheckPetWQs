@@ -1,0 +1,64 @@
+<Ui>
+	<Frame name="CheckPetWQsFighter" frameStrata="DIALOG" parent="UIParent" clampedToScreen="true" enableMouse="true" movable="true" resizable="false" inherits="BasicFrameTemplate" hidden="true">
+		<Size x="470" y="260"/>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString parentKey="Title" inherits="GameFontNormal" wordwrap="false">
+					<Anchors>
+						<Anchor point="TOPLEFT" x="8" y="-5"/>
+						<Anchor point="TOPRIGHT" x="-8" y="-5"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame parentKey="Content" useParentLevel="true">
+				<Size x="470" y="0"/>
+				<Anchors>
+					<Anchor point="TOP" relativeKey="$parent.Source" y="-30" />
+					<Anchor point="BOTTOM" relativeKey="$parent.Bottom" />
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<FontString parentKey="TamerInfo" inherits="GameFontNormal" wordwrap="true" justifyH="RIGHT" nonspacewrap="true">
+							<Size x="60" y="0"/>
+							<Anchors><Anchor point="TOPLEFT" x="10" /></Anchors>
+						</FontString>
+						
+						<FontString parentKey="TamerInfoZone" inherits="GameFontNormal" wordwrap="true" justifyH="LEFT" nonspacewrap="true">
+							<Size x="60" y="0"/>
+							<Anchors><Anchor point="TOPLEFT" x="80" /></Anchors>
+						</FontString>
+						
+						<FontString parentKey="TamerInfoNum" inherits="GameFontNormal" wordwrap="true" justifyH="RIGHT" nonspacewrap="true">
+							<Size x="50" y="0"/>
+							<Anchors><Anchor point="TOPLEFT" x="110" /></Anchors>
+						</FontString>
+					
+						<FontString parentKey="TypeInfo" inherits="GameFontNormal" wordwrap="true" nonspacewrap="true">
+							<Size x="120" y="0"/>
+							<Anchors><Anchor point="TOPLEFT" x="160" /></Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame> <!-- Content -->
+		</Frames>
+		<Scripts>
+			<OnShow>
+				<!-- self:OnShow() -->
+			</OnShow>
+			<OnHide>
+				<!-- self:OnHide() -->
+			</OnHide>
+			<OnMouseDown>
+				self:StartMoving()
+			</OnMouseDown>
+			<OnMouseUp>
+				self:StopMovingOrSizing()
+			</OnMouseUp>
+		</Scripts>
+	</Frame>
+</Ui>
