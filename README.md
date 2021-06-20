@@ -1,0 +1,2 @@
+# CheckPetWQs
+Updated for Shadowlands
