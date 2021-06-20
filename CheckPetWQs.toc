@@ -1,6 +1,6 @@
-## Interface: 90001
-## Author: jas2o
-## Version: 2.08
+## Interface: 90005
+## Author: Kyoukan (forked from jas2o)
+## Version: 3.0
 ## Title: CheckPetWQs
 ## Notes: Checks if there are pet battle world quests up that you need to do for achievements, and if any nice rewards are up.
 ## OptionalDeps: Ace3, CallbackHandler-1.0

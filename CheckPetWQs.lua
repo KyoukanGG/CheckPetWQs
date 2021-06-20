@@ -14,6 +14,7 @@ local colBlue = "|cff0080ff" --BfA: 8.1 Kul Tiras
 --Alt blue: cff00ccff
 local colRed = "|cffff0000" --BfA: 8.1 Zandalar
 --Alt red: cffff6060
+local colBurntOrange = "|cffde5900" --Shadowlands
 
 -- Battle on the Broken Isles
 local achievementLegion70 = 10876
@@ -158,6 +159,18 @@ local zonesBattle82 = { -- 8.2 Rise of Azshara
 	[1462] = "Mechagon Island",
 	[1355] = "Nazjatar"
 	--[1504] = "Nazjatar" --Continent
+}
+local zonesSL90 = { -- 9.0 Shadowlands
+	[1565] = "Ardenweald",
+	[1533] = "Bastion",
+	[1536] = "Maldraxxus",
+	[1525] = "Revendreth",
+
+	[1643] = "Ardenweald", --Not sure why there's multiple
+	[1740] = "Ardenweald",
+	[1569] = "Bastion",
+	[1741] = "Maldraxxus",
+	[1742] = "Revendreth"
 }
 
 -- 7.3 Family Fighter
@@ -323,6 +336,90 @@ local quest82 = {
 	--}
 }
 
+local quest90 = {
+	[61791] = {"Thenia", 1533, 1569},
+	[61867] = {"Rotgut", 1536, 1741},
+	[61866] = {"Caregiver Maximillian", 1536, 1741},
+	[61868] = {"Dundley Stickyfingers", 1536, 1741},
+	[61885] = {"Eyegor", 1525, 1742},
+	[61784] = {"Stratios", 1533, 1569},
+	[61870] = {"Gorgemouth", 1536, 1741},
+	[61948] = {"Faryl", 1565, 1643, 1740},
+	[61946] = {"Glitterdust", 1565, 1643, 1740},
+	[61787] = {"Zolla", 1533, 1569},
+	[61947] = {"Nightfang", 1565, 1643, 1740},
+	[61883] = {"Sylla", 1525, 1742},
+	[61879] = {"Scorch", 1525, 1742},
+	[61949] = {"Rascal", 1565, 1643, 1740},
+	[61886] = {"Addius the Tormentor", 1525, 1742},
+	[61783] = {"Jawbone", 1533, 1569}
+}
+
+-- 9.0 Battle in the Shadowlands
+local achievementSL90 = 14625
+local criteriaSL90 = {
+	[1] = 173381, -- Ardenweald's Tricksters (Rascal)
+	[2] = 173377, -- Airborne Defense Force (Faryl)
+	[3] = 173376, -- Lurking In The Shadows (Nightfang)
+	[4] = 173372, -- Natural Defenders (Glitterdust)
+	[5] = 173331, -- The Mind Games of Addius (Addius the Tormentor)
+	[6] = 173324, -- Eyegor's Special Friends (Eyegor)
+	[7] = 173315, -- Resilient Survivors (Sylla)
+	[8] = 173303, -- Ashes Will Fall (Scorch)
+	[9] = 173274, -- Failed Experiment (Gorgemouth)
+	[10] = 173267, -- Uncomfortably Undercover (Dundley Stickyfingers)
+	[11] = 173263, -- Extra Pieces (Rotgut)
+	[12] = 173257, -- Mighty Minions of Maldraxxus (Caregiver Maximillian)
+	[13] = 173129, -- Thenia's Loyal Companions (Thenia)
+	[14] = 173130, -- Micro Defense Force (Zolla)
+	[15] = 173131, -- Cliffs of Bastion (Stratios)
+	[16] = 173133 -- Mega Bite (Jawbone)
+}
+
+-- 9.0 Family Exorcist
+local achFamExorcist90IDmeta = 14879
+local achFamExorcist90IDtoName = {
+	[14868] = {"Aquatic Apparitions", "Aquatic"},
+	[14869] = {"Beast Busters", "Beast"},
+	[14870] = {"Creepy Critters", "Critter"},
+	[14871] = {"Deathly Dragonkin", "Dragonkin"},
+	[14872] = {"Eerie Elementals", "Elemental"},
+	[14873] = {"Flickering Fliers", "Flying"},
+	[14874] = {"Haunted Humanoids", "Humanoid"},
+	[14875] = {"Mummified Magics", "Magic"},
+	[14876] = {"Macabre Mechanicals", "Mechanical"},
+	[14877] = {"Unholy Undead", "Undead"}
+}
+local achFamExorcist90IDorder = {
+	[1] = { --Pet Journal H/D/F/U/C/Ma/E/B/A/Me
+		[1] = 14874, [2] = 14871, [3] = 14873, [4] = 14877, [5] = 14870, [6] = 14875, [7] = 14872, [8] = 14869, [9] = 14868, [10] = 14876
+	},
+	[2] = { --Alphabetical
+		[1] = 14868, [2] = 14869, [3] = 14870, [4] = 14871, [5] = 14872, [6] = 14873, [7] = 14874, [8] = 14875, [9] = 14876, [10] = 14877
+	}
+}
+
+local questFamExorcist90 = {
+	[1] = { --Ardenweald
+		[61946] = {"Glitterdust", 1565, 1643, 1740}, --Natural Defenders
+		[61948] = {"Faryl", 1565, 1643, 1740} --Airborne Defense Force
+	},
+	[2] = { --Bastion
+		[61787] = {"Zolla", 1533, 1569}, --Micro Defense Force
+		[61791] = {"Thenia", 1533, 1569} --Thenia's Loyal Companions
+	},
+	[3] = { --Maldraxxus
+		[61866] = {"Caregiver Maximillian", 1536, 1741}, --Mighty Minions of Maldraxxus
+		[61867] = {"Rotgut", 1536, 1741}, --Extra Pieces
+		[61868] = {"Dundley Stickyfingers", 1536, 1741} --Uncomfortably Undercover
+	},
+	[4] = { --Revendreth
+		[61883] = {"Sylla", 1525, 1742}, --Resilient Survivors
+		[61885] = {"Eyegor", 1525, 1742}, --Eyegor's Special Friends
+		[61886] = {"Addius the Tormenter", 1525, 1742} --The Mind Games of Addius (NPC name doesn't match criteria spelling)
+	}
+}
+
 --
 
 local useOrder = 1;
@@ -331,7 +428,8 @@ local f = nil
 local fA = nil --Fighter/Argus
 local currentWQ = {} -- All pet WQs
 local missingWQs = {} -- Only Battle on the Broken Isles
-local missingBattleWQs = {} -- Only Battle on the Broken Isles
+local missingBattleWQs = {} -- Only Battle on Zandalar and Kul Tiras
+local missingSLWQs = {} -- Only Battle in the Shadowlands
 
 --
 local function SkinFrame(frame,name)
@@ -379,7 +477,7 @@ end
 
 local function DoChecksRewards()
 	--print(addon.config.profile.notifyRewardItemsBattle) -- notifyRewardItemsLegion
-	if(currentWQ ~= nil and UnitLevel("player") >= 110) then
+	if(currentWQ ~= nil and UnitLevel("player") >= 48) then
 		for questID,mapname in pairs(currentWQ) do
 			if(C_QuestLog.IsQuestFlaggedCompleted(questID) == false) then
 				local numQuestRewards = GetNumQuestLogRewards(questID)
@@ -397,6 +495,8 @@ local function DoChecksRewards()
 						textColZone = colBlue
 					elseif(has_valueAlt(zonesBattle82, mapname) and addon.config.profile.notifyRewardItemsBattle) then
 						textColZone = colYellow
+					elseif(has_valueAlt(zonesSL90, mapname) and addon.config.profile.notifyRewardItemsSL) then
+						textColZone = colBurntOrange
 					end
 
 					if(textColZone ~= nil and (addon.config.profile.notifyRewardCurrencies[itemID] or addon.config.profile.rewardVisible[itemID])) then
@@ -416,6 +516,7 @@ end
 local function DoChecks(force)
 	missingWQs = {}
 	missingBattleWQs = {}
+	missingSLWQs = {}
 	currentWQ = {}
 	local somethingAvailableFF = 0
 	local somethingAvailableFB = 0
@@ -424,6 +525,8 @@ local function DoChecks(force)
 	-- Mostly made for Battle on the Broken Isles
 	local _,_,_, completedIsles = GetAchievementInfo(achievementLegion70)
 	local _,_,_, completedBattle = GetAchievementInfo(achievementBattle80)
+	local _,_,_, completedSL = GetAchievementInfo(achievementSL90)
+
 	local numCriteria = GetAchievementNumCriteria(achievementLegion70)
 	for k=1,numCriteria,1 do
 		local cDesc, _, cComp = GetAchievementCriteriaInfo(achievementLegion70, k)
@@ -439,10 +542,19 @@ local function DoChecks(force)
 			missingBattleWQs[criteriaBattle80[k]] = true
 		end
 	end
+
+	local numSLCriteria = GetAchievementNumCriteria(achievementSL90)
+	for k=1,numSLCriteria,1 do
+		local cDesc, _, cComp = GetAchievementCriteriaInfo(achievementSL90, k)
+		if (cComp == false) then
+			missingSLWQs[criteriaSL90[k]] = true
+		end
+	end
 	
 	local found = 0
 	local foundFF = 0
 	local foundFB = 0
+	local foundFE = 0
 	
 	for uiMapID,mapname in pairs(zonesLegion70) do
 		local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(uiMapID)
@@ -569,6 +681,24 @@ local function DoChecks(force)
 		end
 	end
 
+	-- 9.0 Shadowlands
+	for uiMapID,mapname in pairs(zonesSL90) do
+		local taskInfo = C_TaskQuest.GetQuestsForPlayerByMapID(uiMapID)
+		if (taskInfo and #taskInfo > 0) then
+			for i, info in ipairs (taskInfo) do
+				if(info.mapID == uiMapID) then --Remove quests that are somehow visible from other maps
+					local questID = info.questId
+					if(quest90[questID] ~= nil) then
+						found = found + 1
+						currentWQ[questID] = mapname
+						--print("SL Exists: " .. tostring(questID));
+						C_TaskQuest.RequestPreloadRewardData(questID)
+					end
+				end
+			end
+		end
+	end
+
 	local cacheFound = table_count(CheckPetWQsCache)
 	if(found >= 3) then
 		--print("CheckPetWQs Familar: Found at least 3 quests, saving to cache.")
@@ -581,6 +711,13 @@ local function DoChecks(force)
 			end
 		end
 		for order,zInfo in ipairs(questFamBattler81) do
+			for questID,tamer in pairs(zInfo) do
+				if(C_QuestLog.IsQuestFlaggedCompleted(questID)) then
+					currentWQ[questID] = "Unknown"
+				end
+			end
+		end
+		for order,zInfo in ipairs(questFamExorcist90) do
 			for questID,tamer in pairs(zInfo) do
 				if(C_QuestLog.IsQuestFlaggedCompleted(questID)) then
 					currentWQ[questID] = "Unknown"
@@ -600,7 +737,75 @@ local function DoChecks(force)
 	
 	local numCriteria70 = 0
 	local numCriteria81 = 0
+	local numCriteria90 = 0
 	if(currentWQ ~= nil) then
+		-- 9.0 Shadowlands
+		for order,zInfo in ipairs(questFamExorcist90) do
+			for questID,qInfo in pairs(zInfo) do
+				local mapname = "Unknown"
+				if(zonesSL90[qInfo[2]] ~= nil) then
+					mapname = zonesSL90[qInfo[2]]
+				end
+
+				local tamer90 = zInfo[questID][1]
+				foundFE = foundFE + 1
+				local numComp = 0
+				local txtcriteria = ""
+				for order,achID in ipairs(achFamExorcist90IDorder[useOrder]) do
+					local achName = achFamExorcist90IDtoName[achID][1]
+					local achType = achFamExorcist90IDtoName[achID][2]
+					local _,_,_, achComp = GetAchievementInfo(achID)
+					local numCriteriaFam = GetAchievementNumCriteria(achID)
+					for k=1,numCriteriaFam,1 do
+						local cDesc, _, cComp = GetAchievementCriteriaInfo(achID, k)
+
+						if(cDesc == tamer90) then
+							local add = ""
+							if(cComp == true) then --Criteria
+								numComp = numComp + 1
+								add = colGrey .. string.sub(achType, 1, 3) .. colReset
+							elseif(achComp == true) then
+								add = colGrey .. string.sub(achType, 1, 2) .. "_" .. colReset
+							else
+								numCriteria90 = numCriteria90 + 1
+								add = string.sub(achType, 1, 3)
+							end
+							
+							if(achID == achFamExorcist90IDorder[useOrder][1]) then
+								txtcriteria = add
+							else
+								txtcriteria = txtcriteria .. " " .. add
+							end
+						end
+					end
+				end
+
+				local availabilty = colGrey .. mapname .. colReset
+				if(has_valueAlt(zonesSL90, mapname)) then
+					availabilty = colBurntOrange .. mapname .. colReset
+				end
+
+				if(txtTamerInfo == "") then
+					txtTamerInfo = zInfo[questID][1]
+					txtTamerInfoZone = availabilty
+					txtTamerInfoNum = tostring(numComp) .. " / 10"
+					txtTypeInfo = txtcriteria
+				else
+					txtTamerInfo = txtTamerInfo .. "|n" .. zInfo[questID][1]
+					txtTamerInfoZone = txtTamerInfoZone .. "|n" .. availabilty
+					txtTamerInfoNum = txtTamerInfoNum .. "|n" .. tostring(numComp) .. " / 10"
+					txtTypeInfo = txtTypeInfo .. "|n" .. txtcriteria
+				end
+			end
+		end
+
+		if(txtTamerInfo ~= "") then
+			txtTamerInfo = txtTamerInfo .. "|n"
+			txtTamerInfoZone = txtTamerInfoZone .. "|n"
+			txtTamerInfoNum = txtTamerInfoNum .. "|n"
+			txtTypeInfo = txtTypeInfo .. "|n"
+		end
+
 		-- Family Familar
 		for questID,mapname in pairs(currentWQ) do
 			if (questFamiliar70[questID] ~= nil) then -- exists, as in is FF
@@ -789,7 +994,7 @@ local function DoChecks(force)
 	fA.Content.TamerInfoNum:SetText(txtTamerInfoNum)
 	fA.Content.TypeInfo:SetText(txtTypeInfo)
 	
-	if((UnitLevel("player") < 110 or addon.config.profile.autoWindow == false) and force == false) then
+	if((UnitLevel("player") < 48 or addon.config.profile.autoWindow == false) and force == false) then
 		-- Don't display on characters that can't do Legion WQs
 		somethingAvailableFF = false;
 	end
@@ -797,7 +1002,7 @@ local function DoChecks(force)
 		somethingAvailableFF = true;
 	end
 
-	return somethingAvailableFF, numCriteria70, numCriteria81
+	return somethingAvailableFF, numCriteria70, numCriteria81, numCriteria90
 end
 
 local function PreDoChecks(force, checkRewards)
@@ -808,7 +1013,7 @@ local function PreDoChecks(force, checkRewards)
 
 	if(fA == nil) then
 		fA = CheckPetWQsFighter
-		fA.Title:SetText("CheckPetWQs: Family Familiar / Fighter / Battler")
+		fA.Title:SetText("CheckPetWQs: Family Familiar / Fighter / Battler / Exorcist")
 		fA:SetScript("OnKeyDown", function(self,key) 
 			if key == "ESCAPE" then
 				fA:SetPropagateKeyboardInput(false)
@@ -818,7 +1023,7 @@ local function PreDoChecks(force, checkRewards)
 		fA:EnableKeyboard(true)
 	end
 	  
-	local somethingAvailableFF, numCriteria70, numCriteria81 = DoChecks(force)
+	local somethingAvailableFF, numCriteria70, numCriteria81, numCriteria90 = DoChecks(force)
 	if(checkRewards) then
 		C_Timer.After(2, function() DoChecksRewards() end) -- Sometimes just need to do this later
 	end
@@ -836,13 +1041,18 @@ local function PreDoChecks(force, checkRewards)
 			SkinFrame(fA, fA:GetName())
 			fA:SetPropagateKeyboardInput(true)
 		end
-	elseif(addon.config.profile.notifyNoFF and completedMeta70 == false and UnitLevel("player") >= 110) then
+	elseif(addon.config.profile.notifyNoFF and completedMeta70 == false and UnitLevel("player") >= 48) then
 		print(colPink .. "CheckPetWQs" .. colReset .. ": No available WQs for Family Familiar found.")
 	end
 	-- Family Battler
 	local _,_,_, completedMeta81 = GetAchievementInfo(achFamBattlerIDmeta)
-	if(completedMeta81 == false and force == false and UnitLevel("player") >= 120) then
+	if(completedMeta81 == false and force == false and UnitLevel("player") >= 48) then
 		print(colPink .. "CheckPetWQs" .. colReset .. ": Check your progress towards the 'Family Battler' achievement with /ff or /fb")
+	end
+	-- Family Exorcist
+	local _,_,_, completedMeta90 = GetAchievementInfo(achFamExorcist90IDmeta)
+	if(completedMeta90 == false and force == false and UnitLevel("player") >= 60) then
+		print(colPink .. "CheckPetWQs" .. colReset .. ": Check your progress towards the 'Family Exorcist' achievement with /ff or /fb")
 	end
 	
 	-- Get the base widths
@@ -954,6 +1164,16 @@ frame2:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
+
+	if(addon.config.profile.notifyWarningsFE and UnitInRaid("player") ~= 1 and name ~= nil) then
+		if(zonesSL90[currentAreaID] ~= null) then
+			for order,zInfo in ipairs(questFamExorcist90) do
+				for qID,nInfo in pairs(zInfo) do
+					CheckTarget(colRed, name, nInfo[1], achFamExorcist90IDorder, achFamExorcist90IDtoName, true)
+				end
+			end
+		end
+	end
 end)
 
 SLASH_CHECKPETWQS1 = '/checkpetwqs';
@@ -970,12 +1190,14 @@ local defaults = {
 	profile = {
 		autoBattleAch = true,
 		autoIslesAch = true,
-		orderTypesAlpha = false;
-		notifyWarningsFB = true,
+		orderTypesAlpha = false,
+		notifyWarningsFB = false,
+		notifyWarningsFE = true,
 		autoWindow = true,
 		notifyNoFF = true,
 		notifyWarnings = true,
-		notifyRewardItemsBattle = true,
+		notifyRewardItemsSL = true,
+		notifyRewardItemsBattle = false,
 		notifyRewardItemsLegion = false,
 		notifyRewardCurrencies = {
 			[163036] = true,
@@ -1044,6 +1266,14 @@ local function getConfigOptions()
 				order = 10,
 				inline = true,
 				args = {
+					autoSLAch = {
+						type = "toggle",
+						name = "Battle in the Shadowlands",
+						width = 1.6,
+						set = function(info,val) addon.config.profile.autoSLAch = val; end,
+						get = function(info) return addon.config.profile.autoSLAch end,
+						order = 1,
+					},
 					autoBattleAch = {
 						type = "toggle",
 						name = "Battle on Zandalar and Kul Tiras",
@@ -1073,10 +1303,26 @@ local function getConfigOptions()
 					},
 				}
 			},
+			sectionFamilyExorcist = {
+				type = 'group',
+				name = "Shadowlands: Family Exorcist",
+				order = 20,
+				inline = true,
+				args = {
+					notifyWarningsFE = {
+						type = "toggle",
+						name = "Check team when targetting tamer",
+						width = 1.6,
+						set = function(info,val) addon.config.profile.notifyWarningsFE = val; end,
+						get = function(info) return addon.config.profile.notifyWarningsFE end,
+						order = 1,
+					}
+				}
+			},
 			sectionFamilyBattler = {
 				type = 'group',
 				name = "Battle for Azeroth: Family Battler",
-				order = 20,
+				order = 30,
 				inline = true,
 				args = {
 					notifyWarningsFB = {
@@ -1092,7 +1338,7 @@ local function getConfigOptions()
 			sectionLegion = {
 				type = 'group',
 				name = "Legion: Family Familiar and Family Fighter",
-				order = 30,
+				order = 40,
 				inline = true,
 				args = {
 					autoWindow = {
@@ -1124,16 +1370,24 @@ local function getConfigOptions()
 			sectionRewards = {
 				type = 'group',
 				name = "Reward Notifications",
-				order = 40,
+				order = 50,
 				inline = true,
 				args = {
+					notifyRewardItemsSL = {
+						type = "toggle",
+						name = "Shadowlands",
+						width = "normal",
+						set = function(info,val) addon.config.profile.notifyRewardItemsSL = val; end,
+						get = function(info) return addon.config.profile.notifyRewardItemsSL end,
+						order = 1,
+					},
 					notifyRewardItemsBattle = {
 						type = "toggle",
 						name = "Battle for Azeroth",
 						width = "normal",
 						set = function(info,val) addon.config.profile.notifyRewardItemsBattle = val; end,
 						get = function(info) return addon.config.profile.notifyRewardItemsBattle end,
-						order = 1,
+						order = 2,
 					},
 					notifyRewardItemsLegion = {
 						type = "toggle",
@@ -1141,7 +1395,7 @@ local function getConfigOptions()
 						width = "half",
 						set = function(info,val) addon.config.profile.notifyRewardItemsLegion = val; end,
 						get = function(info) return addon.config.profile.notifyRewardItemsLegion end,
-						order = 2,
+						order = 3,
 					},
 					allTick = {
 						type = "execute",
@@ -1155,7 +1409,7 @@ local function getConfigOptions()
 								addon.config.profile.rewardVisible[id] = true
 							end
 						end,
-						order = 3
+						order = 4
 					},
 					allUntick = {
 						type = "execute",
@@ -1169,7 +1423,7 @@ local function getConfigOptions()
 								addon.config.profile.rewardVisible[id] = false
 							end
 						end,
-						order = 4
+						order = 5
 					},
 					notifyRewardCurrencies = {
 						type = "multiselect",
@@ -1177,7 +1431,7 @@ local function getConfigOptions()
 						values = rewardTokens,
 						set = function(info, key,val) addon.config.profile.notifyRewardCurrencies[key] = val; end,
 						get = function(info, key) return addon.config.profile.notifyRewardCurrencies[key] end,
-						order = 5,
+						order = 6,
 					},
 					rewardVisible = {
 						type = "multiselect",
@@ -1185,7 +1439,7 @@ local function getConfigOptions()
 						values = rewardList,
 						set = function(info, key,val) addon.config.profile.rewardVisible[key] = val; end,
 						get = function(info, key) return addon.config.profile.rewardVisible[key] end,
-						order = 6,
+						order = 7,
 					}
 				}
 			}
