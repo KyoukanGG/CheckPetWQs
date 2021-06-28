@@ -405,6 +405,7 @@ local questFamExorcist90 = {
 		[61948] = {"Faryl", 1565, 1643, 1740} --Airborne Defense Force
 	},
 	[2] = { --Bastion
+		[61784] = {"Stratios", 1533, 1569}, --Cliffs of Bastion
 		[61787] = {"Zolla", 1533, 1569}, --Micro Defense Force
 		[61791] = {"Thenia", 1533, 1569} --Thenia's Loyal Companions
 	},
